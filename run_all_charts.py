@@ -2,7 +2,7 @@
 Run All Charts
 Social Media Engagement Analysis
 
-F�hrt alle drei Chart-Skripte nacheinander aus.
+Führt alle drei Chart-Skripte nacheinander aus.
 Output: output/ Ordner mit 3 PNG-Dateien
 
 Author: Julia Rogocki
@@ -21,17 +21,17 @@ print()
 # Output-Ordner erstellen
 os.makedirs("output", exist_ok=True)
 
-# Chart 1 ausf�hren
+# Chart 1 ausführen
 print("📊 Generating Chart 1: Scatter Plot...")
 subprocess.run(["python", "chart_1_scatter_plot.py"], check=True)
 print()
 
-# Chart 2 ausf�hren
+# Chart 2 ausführen
 print("📊 Generating Chart 2: Bar Chart...")
 subprocess.run(["python", "chart_2_bar_chart.py"], check=True)
 print()
 
-# Chart 3 ausf�hren
+# Chart 3 ausführen
 print("📊 Generating Chart 3: Heatmap...")
 subprocess.run(["python", "chart_3_heatmap.py"], check=True)
 print()
