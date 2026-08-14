@@ -11,8 +11,12 @@ Date: August 2026
 
 import kagglehub
 import os
-import shutil
 import pandas as pd
+
+# ============================================================
+# Get the directory where this script is located
+# ============================================================
+script_dir = os.path.dirname(os.path.abspath(__file__))
 
 # ============================================================
 # STEP 1: Download dataset from Kaggle
@@ -90,7 +94,7 @@ else:
         else:
             # Column not found, create with default/placeholder
             if new_col == 'title':
-                df_new[new_col] = f"Post_{range(len(df))}"
+                df_new[new_col] = [f"Post_{i}" for i in range(len(df))]
             elif new_col == 'score':
                 df_new[new_col] = 0
             elif new_col == 'num_comments':
@@ -106,9 +110,9 @@ else:
     print()
     
     # ============================================================
-    # STEP 5: Save as data.csv in project folder
+    # STEP 5: Save as data.csv in SAME FOLDER as this script
     # ============================================================
-    output_file = "data.csv"
+    output_file = os.path.join(script_dir, "data.csv")
     print(f"💾 Saving prepared data as '{output_file}'...")
     
     df_new.to_csv(output_file, index=False)
